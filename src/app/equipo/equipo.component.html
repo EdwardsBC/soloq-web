@@ -1,0 +1,24 @@
+<meta http-equiv="refresh" content="2" >
+
+<div id="container">
+  <div id="elo">
+    <img id="ajuste_de_tamaño_tier" *ngIf="equipo[0].tier == 'CHALLENGER'" src="assets/imagenes/challengericon.png">
+    <img id="ajuste_de_tamaño_tier" *ngIf="equipo[0].tier == 'GRANDMASTER'" src="assets/imagenes/grandmastericon.png">
+    <img id="ajuste_de_tamaño_tier" *ngIf="equipo[0].tier == 'MASTER'" src="assets/imagenes/mastericon.png">
+    <img id="ajuste_de_tamaño_tier" *ngIf="equipo[0].tier == 'DIAMOND'" src="assets/imagenes/diamondicon.png">
+    <img id="ajuste_de_tamaño_tier" *ngIf="equipo[0].tier == 'PLATINUM'" src="assets/imagenes/platinumicon.png">
+    <img id="ajuste_de_tamaño_tier" *ngIf="equipo[0].tier == 'GOLD'" src="assets/imagenes/goldicon.png">
+    <img id="ajuste_de_tamaño_tier" *ngIf="equipo[0].tier == 'SILVER'" src="assets/imagenes/goldicon.png">
+    <img id="ajuste_de_tamaño_tier" *ngIf="equipo[0].tier == 'BRONZE'" src="assets/imagenes/bronzeicon.png">
+    <img id="ajuste_de_tamaño_tier" *ngIf="equipo[0].tier == 'IRON'" src="assets/imagenes/ironicon.png">
+    <img id="ajuste_de_tamaño_tier" *ngIf="equipo[0].tier == 'UNRANKED'" src="assets/imagenes/unrankedicon.png">
+  </div>
+  <div id="datos">
+    <div id="correcion_de_tamaño">
+      <h4 id="ajuste_texto">{{equipo[0].puesto}} . {{equipo[0].summonerName}}</h4 >
+        <h6 *ngIf="equipo[0].tier !== 'UNRANKED'" id="ajuste_texto">{{equipo[0].tier + " | " + equipo[0].rank + " | " + equipo[0].leaguePoints + "LP"}} </h6 >
+        <h6  *ngIf="equipo[0].tier !== 'UNRANKED'" id="ajuste_texto">{{equipo[0].wins + " | " + equipo[0].losses}} </h6 >
+        <h6 *ngIf="equipo[0].tier == 'UNRANKED'" id="ajuste_texto">{{equipo[0].tier}} </h6 >
+    </div>
+  </div>
+</div>

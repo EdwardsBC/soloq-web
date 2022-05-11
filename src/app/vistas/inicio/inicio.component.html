@@ -1,0 +1,108 @@
+<app-header></app-header>
+
+ <body >
+
+    <div id="general">
+
+      <div id="navbar">
+        <div>
+
+        </div>
+      </div>
+
+      <div id="publi" class="slider">
+        <ul>
+          <li><img id="ajuste" src="assets/imagenes/1.png"></li>
+          <li><img id="ajuste" src="assets/imagenes/2.png"></li>
+          <li><img id="ajuste" src="assets/imagenes/3.png"></li>
+          <li><img id="ajuste" src="assets/imagenes/4.png"></li>
+        </ul>
+      </div>
+
+      <div id="tabla">
+
+        <div id = "texto">
+          <img id="textoicon" src="assets/imagenes/persona.png">
+          <a id="textoparticipantes" style="color:black;"  > 15 Participantes  </a>
+          <img id="textoicon" src="assets/imagenes/otorgar.png">
+          <a id="textoparticipantes1" style="color:black;" > Skin de 1350  </a>
+          <img id="textoicon"  src="assets/imagenes/calendar.png" >
+          <a id="textoparticipantes2" style="color:black;" > Del 03/11/22 al 03/12/22 </a>
+        </div>
+
+
+
+        <div id="search">
+          <img id="searchicon" src="assets/imagenes/lupa.png">
+          <form >
+            <input
+              id="searchinput"
+              type="search"
+              name ="filtro_valor"
+              placeholder=" Inserte el nombre del Invocador a buscar"
+              aria-label="Search"
+              [(ngModel)] ="filtro_valor"
+            />
+          </form>
+        </div>
+
+
+        <table class="table " height="10%" id="tablaajuste">
+          <thead>
+            <tr>
+              <th inputmode="button" scope="col" (click)="ordenarPuestos()">Puesto</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Twitter</th>
+              <th scope="col">Twitch</th>
+              <th inputmode="button" scope="col" (click)="ordenarPuestos()">Elo</th>
+              <th inputmode="button" scope="col" (click)="ordenarGanadas()">Ganadas</th>
+              <th inputmode="button" scope="col" (click)="ordenarPerdidas()">Perdidas</th>
+              <th inputmode="button" scope="col" (click)="ordenarWinrate()">Winrate</th>
+              <th scope="col">OP.GG</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let jugador of jugadores  | filter:filtro_valor">
+
+              <th scope="row">{{jugador.puesto}}</th>
+              <td>{{jugador.summonerName}}</td>
+              <td>
+                <a inputmode="type="button href="{{jugador.veteran}}"  class="btn btn-outline-secondary" target="_blank" id="ajusteborde">
+                  <img id="ajuste_de_tamaño" src="assets/imagenes/twittericon.png" >
+                </a>
+              </td>
+              <td>
+                <a inputmode="type="button href="{{jugador.hotStreak}}"  class="btn btn-outline-secondary" target="_blank" id="ajusteborde">
+                  <img id="ajuste_de_tamaño" src="assets/imagenes/twitchicon.png" >
+                </a>
+              </td>
+              <td>
+                <img id="ajuste_de_tamaño_tier" *ngIf="jugador.tier == 'CHALLENGER'" src="assets/imagenes/challengericon.png">
+                <img id="ajuste_de_tamaño_tier" *ngIf="jugador.tier == 'GRANDMASTER'" src="assets/imagenes/grandmastericon.png">
+                <img id="ajuste_de_tamaño_tier" *ngIf="jugador.tier == 'MASTER'" src="assets/imagenes/mastericon.png">
+                <img id="ajuste_de_tamaño_tier" *ngIf="jugador.tier == 'PLATINUM'" src="assets/imagenes/platinumicon.png">
+                <img id="ajuste_de_tamaño_tier" *ngIf="jugador.tier == 'DIAMOND'" src="assets/imagenes/diamondicon.png">
+                <img id="ajuste_de_tamaño_tier" *ngIf="jugador.tier == 'GOLD'" src="assets/imagenes/goldicon.png">
+                <img id="ajuste_de_tamaño_tier" *ngIf="jugador.tier == 'SILVER'" src="assets/imagenes/goldicon.png">
+                <img id="ajuste_de_tamaño_tier" *ngIf="jugador.tier == 'BRONZE'" src="assets/imagenes/bronzeicon.png">
+                <img id="ajuste_de_tamaño_tier" *ngIf="jugador.tier == 'IRON'" src="assets/imagenes/ironicon.png"  >
+                <img id="ajuste_de_tamaño_tier" *ngIf="jugador.tier == 'UNRANKED'" src="assets/imagenes/unrankedicon.png"  >
+                {{jugador.tier + " | " + jugador.rank + " | " + jugador.leaguePoints}}
+
+              </td>
+              <td>{{jugador.wins}}</td>
+              <td>{{jugador.losses}}</td>
+              <td *ngIf="jugador.tier !== 'UNRANKED'" >{{jugador.winrate + '%'}}</td>
+              <td *ngIf="jugador.tier == 'UNRANKED'" ></td>
+              <td>
+                <a id="ajuste_de_color" inputmode="type="button href="{{jugador.summonerId}}"  class="btn btn-outline-secondary" target="_blank">
+                  <img id="ajuste_de_tamaño_opgg" src="assets/imagenes/opggicon.png" >
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>

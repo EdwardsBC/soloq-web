@@ -1,0 +1,43 @@
+div#container{
+  width: 340px;
+  height: 150px;
+
+}
+
+div#elo{
+  width: 140px;
+  height: 100%;
+  float: left;
+  margin-right: 10px;
+
+}
+
+img#ajuste_de_tamaño_tier{
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+div#datos{
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+
+div#correcion_de_tamaño{
+  margin: auto;
+  padding-top: 19px;
+  margin-left: 5px;
+  margin-top: 10px;
+  width: 340px;
+  height: 100%;
+
+}
+
+h4#ajuste_texto{
+color: white;
+}
+
+h6#ajuste_texto{
+  color: white;
+  }
